@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, Post } from '@nestjs/common';
+import { Controller, Inject, Post } from '@nestjs/common';
 import {
   ClientProxy,
   Ctx,
@@ -19,11 +19,11 @@ export class AppController {
     context.getChannelRef().ack(context.getMessage());
   }
 
-  @MessagePattern('n0tifications')
-  getN0tifications(@Payload() data: any, @Ctx() context: RmqContext) {
-    console.log(`Pattern: ${context.getPattern()} acknowledged.`);
-    context.getChannelRef().ack(context.getMessage());
-  }
+  // @MessagePattern('n0tifications')
+  // getN0tifications(@Payload() data: any, @Ctx() context: RmqContext) {
+  //   console.log(`Pattern: ${context.getPattern()} acknowledged.`);
+  //   context.getChannelRef().ack(context.getMessage());
+  // }
 
   @Post('/valid')
   sendValidMessage() {

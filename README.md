@@ -32,9 +32,11 @@ $ yarn start:dev
 # publish valid event, then check if the valid event is handled.
 $ curl -X POST http://127.0.0.1:3000/valid
 
-# publish invalid event, then check if the application output error logs.
+# publish invalid event, then check if the application output error log such as `There is no matching event handler defined in the remote service. Event pattern: n0tifications`.
 $ curl -X POST http://127.0.0.1:3000/invalid
 
 # publish valid event again, then check if the valid event is not handled due to the application is keeping to handle invalid event.
 $ curl -X POST http://127.0.0.1:3000/valid
 ```
+
+If remove commenting out of the handler for handling invalid message in the `app.controller.ts`, invalid message will be handled.
